@@ -7,9 +7,10 @@ var googleBase = "https://www.google.com/search?q=";
 var websiteBase = "https://www.";
 
 function createURL(e, q){
-    var base = ""
+    var base = "";
+    e = e.toLowerCase();
     if(e === "google"){ base = googleBase; }
-    else if(e === "youtube"){ base = youtubeBase; }
+    if(e === "youtube"){ base = youtubeBase; }
     return base + q.split(' ').join('+');
 }
 
@@ -25,8 +26,9 @@ function getGameId(game){
     var bestFitGame = '';
     for(var i = 0; i < gameTitles.length; i++){
         var gameTitle = gameTitles[i];
-        if(natural.JaroWinklerDistance(gameTitle, game) > maxDistance){
-            maxDistance = natural.JaroWinklerDistance(gameTitle, game);
+        var similarity = natural.JaroWinklerDistance(gameTitle, game);
+        if(similarity > maxDistance){
+            maxDistance = similarity;
             bestFitGame = gameTitles[i];
         }
     }

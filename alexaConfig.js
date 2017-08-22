@@ -40,7 +40,6 @@ var openGameIntentParams = {
 };
 
 function onLaunch(request, response) {
-    console.log("Made it to the launch area");
     response.say("What can I do for you?").shouldEndSession(false);
     return;
 }
@@ -50,6 +49,7 @@ function onSearchIntent(request, response) {
     var engine = request.slot("engine");
     var query = request.slot("query");
     var url = func.createURL(engine, query);
+    console.log(engine);
     console.log(url);
     var alexaResponse = "Okay.  Searching " + engine + " " + query;
     response.say(alexaResponse);

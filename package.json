@@ -10,8 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "alexa-app": "^4.1.0",
+    "electron": "^1.7.5",
     "express": "^4.15.4",
-    "open": "0.0.5",
-    "natural": "0.5.4"
+    "natural": "0.5.4",
+    "open": "0.0.5"
   }
 }
